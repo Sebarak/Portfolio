@@ -1,0 +1,10 @@
+.spaceship{
+  border: 5px solid red;
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  //transition: transform .2s ease-out;
+}
