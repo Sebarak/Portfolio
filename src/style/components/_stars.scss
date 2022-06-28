@@ -1,0 +1,33 @@
+.stars{
+
+  .star{
+    @keyframes shining {
+      from{
+        filter: blur(2px) opacity(0.4);
+        box-shadow: 0 0 80px 8px white;
+        background-color: white;
+      }
+      50%{
+        background-color: rgb(255, 182, 182);
+      }
+      to{
+        filter: blur(2px) opacity(0.8);
+        box-shadow: 0 0 120px 8px white;
+        background-color: #f8da7c;
+      }
+    }
+
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    filter: blur(2px) opacity(0.6);
+    box-shadow: 0 0 80px 8px white;
+    animation: shining 2s linear infinite alternate;
+
+    @for $i from 1 through 3 {
+      &:nth-of-type(4n + #{$i}) {
+        animation-delay: #{$i}s;
+      }
+    }
+  }
+}

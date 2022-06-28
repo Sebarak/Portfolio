@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {Stars} from "./Decoration/Stars";
 let x = 0;
 let y = 0;
 let xShip = -50;
@@ -145,7 +146,11 @@ const Space = () => {
         // });
     }
     return(
-        <main className='space'/>
+        <>
+            <main className='space'>
+                <Stars />
+            </main>
+        </>
     )
 }
 
