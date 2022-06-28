@@ -1,0 +1,17 @@
+.asteroids{
+
+  .asteroid{
+    background: url("../../image/asteroid.png") no-repeat center/cover;
+    position: absolute;
+    border: 2px solid red;
+    @for $i from 1 through 100{
+      $size: random(50);
+      &:nth-of-type(#{$i}){
+        top: random(5000) + 200 + px;
+        left: random(8000) + 200 + px;
+        width: $size + 50 + px;
+        height: $size + 50 + px;
+      }
+    }
+  }
+}

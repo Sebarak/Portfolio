@@ -1,4 +1,6 @@
 .stars{
+  width: inherit;
+  height: inherit;
 
   .star{
     @keyframes shining {
@@ -24,7 +26,17 @@
     box-shadow: 0 0 80px 8px white;
     animation: shining 2s linear infinite alternate;
 
-    @for $i from 1 through 3 {
+    @for $i from 1 through 800 {
+      $size: random(5);
+      &:nth-of-type(#{$i}) {
+        top: random(6500) + px;
+        left: random(8500) + px;
+        width: $size + 5 + px;
+        height: $size + 5 + px;
+      }
+    }
+
+    @for $i from 1 through 5 {
       &:nth-of-type(4n + #{$i}) {
         animation-delay: #{$i}s;
       }
