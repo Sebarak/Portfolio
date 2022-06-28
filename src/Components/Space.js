@@ -44,7 +44,6 @@ const Space = () => {
                             }
                         }
                     }
-                    console.log(x);
                     break;
                 case 'd':
                 case "ArrowRight":
@@ -52,7 +51,6 @@ const Space = () => {
                         xShip += 20;
                         ship.style.transform = `translate(${xShip}%,${yShip}%)`;
                     }else {
-                        console.log(ship.getBoundingClientRect().right - window.innerWidth);
                         if (space.getBoundingClientRect().right - window.innerWidth >= 20) {
                             x -= 20;
                             space.style.transform = `translate(${x}px, ${y}px)`;
@@ -65,23 +63,47 @@ const Space = () => {
                                 ship.style.transform = `translate(${xShip}%,${yShip}%)`;
                             }
                         }
-                }
+                    }
                     break;
                 case 'w':
                 case "ArrowUp":
-                    y-=20;
-                    space.style.transform = `translate(${x}px, ${y}px)`;
-                    if (i < 80) {
-                        i += 20;
+                    if (yShip > -50){
+                        yShip -= 10;
+                        ship.style.transform = `translate(${xShip}%,${yShip}%)`;
+                    } else {
+                        if (space.getBoundingClientRect().top <= -20) {
+                            y+=20;
+                            space.style.transform = `translate(${x}px, ${y}px)`;
+                        } else {
+                            if (ship.getBoundingClientRect().top > 10){
+                                yShip -= 10;
+                                ship.style.transform = `translate(${xShip}%,${yShip}%)`;
+                            }
+                        }
                     }
+                    // if (i < 80) {
+                    //     i += 20;
+                    // }
                     break;
                 case 's':
                 case "ArrowDown":
-                    y+=20;
-                    space.style.transform = `translate(${x}px, ${y}px)`;
-                    if (i < 80) {
-                        i += 20;
+                    if (yShip < -50){
+                        yShip += 10;
+                        ship.style.transform = `translate(${xShip}%,${yShip}%)`;
+                    } else {
+                        if (space.getBoundingClientRect().bottom - window.innerHeight >= 20) {
+                            y-=20;
+                            space.style.transform = `translate(${x}px, ${y}px)`;
+                        } else {
+                            if (ship.getBoundingClientRect().bottom - window.innerHeight < -10){
+                                yShip += 10;
+                                ship.style.transform = `translate(${xShip}%,${yShip}%)`;
+                            }
+                        }
                     }
+                    // if (i < 80) {
+                    //     i += 20;
+                    // }
                     break;
             }
         });
